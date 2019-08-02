@@ -1,9 +1,18 @@
 version: "3"
 
 services:
-  worker:
-    image: cranki/url-shortener:1.0
-    container_name: worker
+  url-shortener-web:
+    image: cranki/url-shortener-web:dev
+    container_name: url-shortener-web
+    ports:
+      - 3000:80
+    depends_on:
+      - url-shortener-worker
+    networks:
+      - cranki
+  url-shortener-worker:
+    image: cranki/url-shortener:dev
+    container_name: url-shortener-worker
     ports:
       - 8888:8888
     depends_on:
