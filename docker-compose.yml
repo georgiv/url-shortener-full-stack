@@ -2,7 +2,7 @@ version: "3"
 
 services:
   url-shortener-web:
-    image: cranki/url-shortener-web:dev
+    image: cranki/url-shortener-web:1.0
     container_name: url-shortener-web
     ports:
       - 3000:80
@@ -11,7 +11,7 @@ services:
     networks:
       - cranki
   url-shortener-worker:
-    image: cranki/url-shortener:dev
+    image: cranki/url-shortener:1.0
     container_name: url-shortener-worker
     ports:
       - 8888:8888
